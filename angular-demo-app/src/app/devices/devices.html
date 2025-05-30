@@ -1,0 +1,25 @@
+
+<h2>Devices</h2>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let device"> {{device.name}} </td>
+  </ng-container>
+
+  <!-- Type Column -->
+  <ng-container matColumnDef="UUID">
+    <th mat-header-cell *matHeaderCellDef> UUID </th>
+    <td mat-cell *matCellDef="let device"> {{device.UUID}} </td>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="lastSeen">
+    <th mat-header-cell *matHeaderCellDef> Last Seen </th>
+    <td mat-cell *matCellDef="let device">  {{ device.lastSeen ? (device.lastSeen | date:'medium') : 'never' }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

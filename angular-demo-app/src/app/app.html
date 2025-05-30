@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" mode="side" opened >
+    <mat-toolbar color="primary" >Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active">Home</a>
+      <a mat-list-item routerLink="/devices" routerLinkActive="active">Devices</a>
+      <!-- Add more links here -->
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="topbar" style="border-bottom: 1px solid grey; background: rgb(110, 110, 181);">
+
+      <span>Davra Angular Demo App</span>
+    </mat-toolbar>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<style>
+.sidenav-container {
+  height: 100vh;
+}
+.sidenav {
+  width: 220px;
+  border-right: 1px solid #ddd;
+  border-radius: 0;
+}
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.main-content {
+  padding: 24px;
+}
+.hide-desktop {
+  display: none;
+}
+@media (max-width: 768px) {
+  .sidenav {
+    width: 160px;
+  }
+  .hide-desktop {
+    display: inline-flex;
+  }
+}
+</style>
